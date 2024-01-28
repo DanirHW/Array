@@ -11,11 +11,7 @@ public class StatsService {
     }
 
     public int averageSumSales(long[] sales) { // Средняя сумма всех продаж
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-        }
-        return sum / sales.length;
+        return sumSales(sales) / sales.length;
     }
 
     public int maxSales(long[] sales) { // Номер месяца в котором был пик продаж
@@ -26,7 +22,6 @@ public class StatsService {
                 maxMonth = i;
             }
         }
-
         return maxMonth + 1;
     }
 
@@ -39,18 +34,13 @@ public class StatsService {
                 minMonth = i;
             }
         }
-
         return minMonth + 1;
     }
 
 
     public int lessAverageSumSales(long[] sales) {  // Номер месяца в котором продажи были ниже среднего
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-        }
 
-        int average = sum / sales.length;
+        int average = averageSumSales(sales);
         int lessAverage = 0;
 
         for (int i = 0; i < sales.length; i++) {
@@ -63,12 +53,8 @@ public class StatsService {
 
 
     public int overAverageSumSales(long[] sales) {  // Номер месяца в котором продажи были ниже среднего
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum += sales[i];
-        }
 
-        int average = sum / sales.length;
+        int average = averageSumSales(sales);
         int overAverage = 0;
 
         for (int i = 0; i < sales.length; i++) {
